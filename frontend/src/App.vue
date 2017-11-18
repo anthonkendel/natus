@@ -2,7 +2,9 @@
   <v-app dark id="app">
     <n-navigation></n-navigation>
     <v-content>
-      <v-container fluid><router-view/></v-container>
+      <v-container fluid>
+        <router-view/>
+      </v-container>
     </v-content>
   </v-app>
 </template>
