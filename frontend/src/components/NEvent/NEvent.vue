@@ -1,15 +1,10 @@
 <template>
-  <div>
-    View {{ id }}
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
   export default {
-    name: 'NEventView',
-    props: {
-      id: String,
-    },
+    name: 'NEvent',
   };
 </script>
 
