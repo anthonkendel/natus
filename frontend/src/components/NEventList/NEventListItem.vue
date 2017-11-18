@@ -5,7 +5,15 @@
         <v-flex xs8>
           <div>
             <div class="headline">{{event.name}}</div>
-            <div>{{event.desc}}</div>
+            <div class="left">
+              <span class="date">{{ event.startDate | dateToString }}</span>
+              <span class="date-text">Start</span>
+            </div>
+            <div class="right">
+              <span class="date">{{ event.endDate | dateToString }}</span>
+              <span class="date-text">End</span>
+            </div><br /><br />
+            <div class="description">{{event.desc}}</div>
           </div>
         </v-flex>
         <v-flex xs4>
@@ -18,7 +26,7 @@
       </v-layout>
     </v-container>
     <v-card-actions>
-      <v-btn flat color="teal" @click="routeTo">View</v-btn>
+      <v-btn flat color="deep-orange lighten-2" @click="routeTo">View</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -32,8 +40,41 @@
         this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
       },
     },
+    filters: {
+      dateToString(dateISO) {
+        const date = new Date(dateISO);
+        return `${date.getDate()}-${date.getMonth()}1-${date.getFullYear()}`;
+      },
+    },
   };
 </script>
 
 <style lang="scss" scoped>
+  span {
+    display: block;
+  }
+
+  .date {
+    font-weight: 600;
+    font-size: 10pt;
+  }
+
+  .date-text {
+    font-size: 8pt;
+  }
+
+  .left {
+    float: left;
+    text-align: left;
+  }
+
+  .right {
+    float: right;
+    text-align: right;
+  }
+
+  .description {
+    width: 100%
+  }
+
 </style>
