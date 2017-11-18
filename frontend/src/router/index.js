@@ -54,9 +54,10 @@ export default new Router({
           props: true,
         },
         {
-          path: ':id/key/:key',
+          path: ':id/adminKey/:adminKey',
           name: 'n-admin-event',
           component: NAdminEvent,
+          props: true,
         },
       ],
     },

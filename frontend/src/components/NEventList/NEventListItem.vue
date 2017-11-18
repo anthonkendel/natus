@@ -27,6 +27,7 @@
     </v-container>
     <v-card-actions>
       <v-btn flat color="deep-orange lighten-2" @click="routeTo">View</v-btn>
+      <v-btn flat color="deep-orange lighten-2" @click="routeToAdmin">Admin</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -41,6 +42,9 @@
     methods: {
       routeTo() {
         this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
+      },
+      routeToAdmin() {
+        this.$router.push({ name: 'n-admin-event', params: { id: this.event.id, adminKey: this.event.adminKey } });
       },
     },
   };

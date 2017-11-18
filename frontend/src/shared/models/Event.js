@@ -1,6 +1,8 @@
 export default class Event {
-  constructor({ id, name, description, imageUrl, startDate, endDate, category, location } = {}) {
+  constructor({ id, adminKey, name, description, imageUrl, startDate, endDate, category, location,
+} = {}) {
     this.id = id || '';
+    this.adminKey = adminKey || '';
     this.name = name || '';
     this.description = description || '';
     this.imageUrl = imageUrl || '';

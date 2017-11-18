@@ -28,9 +28,6 @@
             </v-flex>
           </v-layout>
         </v-container>
-        <v-card-actions>
-          <v-btn flat color="deep-orange lighten-2" @click="routeTo">View</v-btn>
-        </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
