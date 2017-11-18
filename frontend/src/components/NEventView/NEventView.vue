@@ -9,11 +9,11 @@
               <div>
                 <div class="headline">{{ event.name }}</div>
                 <div class="left">
-                  <span class="date">{{ event.startDate | dateToString }}</span>
+                  <span class="date">{{ event.startDate | formatDate }}</span>
                   <span class="date-text">Start</span>
                 </div>
                 <div class="right">
-                  <span class="date">{{ event.endDate | dateToString }}</span>
+                  <span class="date">{{ event.endDate | formatDate }}</span>
                   <span class="date-text">End</span>
                 </div><br /><br />
                 <div class="description">{{ event.description }}</div>
@@ -38,10 +38,12 @@
 
 <script>
   import { mapGetters } from 'vuex';
+  import DateFilters from '@/shared/date/DateFilters';
 
   export default {
     name: 'NEventList',
     props: { id: String },
+    mixins: [DateFilters],
     data() {
       return {
         event: null,
@@ -56,12 +58,6 @@
       ...mapGetters([
         'getEvent',
       ]),
-    },
-    filters: {
-      dateToString(dateISO) {
-        const date = new Date(dateISO);
-        return `${date.getDate()}-${date.getMonth()}1-${date.getFullYear()}`;
-      },
     },
     mounted() {
       this.event = this.getEvent(this.id);
