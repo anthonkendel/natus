@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    List
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app',
+    name: 'NEventList'
   };
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>
