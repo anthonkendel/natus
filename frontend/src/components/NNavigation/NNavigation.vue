@@ -62,7 +62,7 @@
     },
     methods: {
       routeTo(name) {
-        this.$router.push({name});
+        this.$router.push({ name });
       },
       toggleMiniVariant() {
         this.miniVariant = !this.miniVariant;
