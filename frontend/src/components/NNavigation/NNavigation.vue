@@ -6,7 +6,8 @@
     class="deep-orange lighten-2"
     :mini-variant="mini"
     v-model="drawer"
-    value="true">
+    value="true"
+    disable-resize-watcher>
 
     <v-toolbar flat class="deep-orange lighten-2">
       <v-list>
