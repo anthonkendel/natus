@@ -1,4 +1,3 @@
-<!--suppress CheckEmptyScriptTag -->
 <template>
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>

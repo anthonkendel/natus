@@ -1,4 +1,3 @@
-<!--suppress CheckEmptyScriptTag -->
 <template>
   <v-menu
     lazy
