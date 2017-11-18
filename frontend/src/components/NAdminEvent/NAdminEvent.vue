@@ -1,7 +1,7 @@
 <template>
   <v-layout v-if="event">
     <v-flex xs12 sm8 offset-sm2>
-      <v-subheader v-text="'Administrate event'"/>
+      <v-subheader v-text="'Create event'"/>
       <v-card color="white" class="pa-2">
         <v-container fluid>
           <v-form>
@@ -62,42 +62,100 @@
         </v-container>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat color="deep-orange lighten-2" @click="createEvent(event)">Save</v-btn>
+          <v-btn flat color="deep-orange lighten-2" @click="saveEvent(event)">
+            Save
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
+
+    <n-snackbar
+      :visible="snackbar"
+      :message="'Invalid event'"
+      @close="snackbar = false"
+    ></n-snackbar>
   </v-layout>
 </template>
 
 <script>
   import { mapGetters } from 'vuex';
-  import NDatePicker from '@/components/NDatePicker/NDatePicker';
+  import DateFilters from '@/shared/date/DateFilters';
 
   export default {
-    name: 'NAdminEvent',
+    name: 'NEventList',
     props: {
       id: String,
       adminKey: String,
     },
+    mixins: [DateFilters],
     data() {
       return {
-        isEventValid: false,
+        snackbar: false,
         event: null,
       };
     },
     methods: {
+      routeTo() {
+        this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
+      },
+      isEventValid(e) {
+        return !!e.name &&
+          !!e.description &&
+          !!e.imageUrl &&
+          !!e.startDate &&
+          !!e.endDate &&
+          !!e.category &&
+          !!e.location;
+      },
+      saveEvent(event) {
+        if (this.isEventValid(event)) {
+          this.$store.commit('saveEvent', event);
+          this.$router.push({ name: 'n-event-list' });
+        } else {
+          this.snackbar = true;
+        }
+      },
+    },
+    computed: {
       ...mapGetters([
         'getEvent',
         'validateAdmin',
       ]),
     },
-    components: { NDatePicker },
     mounted() {
-      this.event = this.getEvent(this.id);
-      console.log(this.event);
+      if (this.validateAdmin(this.id, this.adminKey)) {
+        this.event = this.getEvent(this.id);
+      }
     },
   };
 </script>
 
 <style lang="scss" scoped>
+  span {
+    display: block;
+  }
+
+  .date {
+    font-weight: 600;
+    font-size: 10pt;
+  }
+
+  .date-text {
+    font-size: 8pt;
+  }
+
+  .left {
+    float: left;
+    text-align: left;
+  }
+
+  .right {
+    float: right;
+    text-align: right;
+  }
+
+  .description {
+    width: 100%
+  }
+
 </style>
