@@ -8,7 +8,6 @@
     v-model="drawer"
     value="true"
     disable-resize-watcher>
-
     <v-toolbar flat class="deep-orange lighten-2">
       <v-list>
         <v-list-tile>

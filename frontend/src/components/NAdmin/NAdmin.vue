@@ -4,6 +4,6 @@
 
 <script>
   export default {
-    name: 'NEvent',
+    name: 'NAdmin',
   };
 </script>
