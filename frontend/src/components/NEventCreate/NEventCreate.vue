@@ -68,28 +68,50 @@
         </v-card-actions>
       </v-card>
     </v-flex>
+
+    <n-snackbar
+      :visible="snackbar"
+      :message="'Invalid event'"
+      @close="snackbar = false"
+    ></n-snackbar>
   </v-layout>
 </template>
 
 <script>
-  import { mapMutations } from 'vuex';
   import NDatePicker from '@/components/NDatePicker/NDatePicker';
+  import NSnackbar from '@/components/NSnackbar/NSnackbar';
   import Event from '@/shared/models/Event';
 
   export default {
     name: 'NEventCreate',
     data() {
       return {
-        isEventValid: false,
         event: new Event(),
+        snackbar: false,
       };
     },
     methods: {
-      ...mapMutations([
-        'createEvent',
-      ]),
+      isEventValid(e) {
+        return !!e.name &&
+          !!e.description &&
+          !!e.imageUrl &&
+          !!e.startDate &&
+          !!e.endDate &&
+          !!e.category &&
+          !!e.location;
+      },
+      createEvent(event) {
+        if (this.isEventValid(event)) {
+          this.$store.commit('createEvent', event);
+          this.$router.push({ name: 'n-event-list' });
+        } else {
+          this.snackbar = true;
+        }
+      },
     },
-    components: { NDatePicker },
+    components: {
+      NSnackbar,
+      NDatePicker },
   };
 </script>
 
