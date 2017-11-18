@@ -1,28 +1,37 @@
+import faker from 'faker';
 import Event from '../models/Event';
 
+const fakeEvents = [
+  new Event({
+    id: faker.random.uuid(),
+    name: faker.lorem.words(3),
+    description: faker.lorem.words(80),
+    imageUrl: faker.image.image(),
+    startDate: new Date(),
+    endDate: new Date(),
+    category: faker.lorem.word(),
+  }),
+  new Event({
+    id: faker.random.uuid(),
+    name: faker.lorem.words(3),
+    description: faker.lorem.words(80),
+    imageUrl: faker.image.image(),
+    startDate: new Date(),
+    endDate: new Date(),
+    category: faker.lorem.word(),
+  }),
+  new Event({
+    id: faker.random.uuid(),
+    name: faker.lorem.words(3),
+    description: faker.lorem.words(80),
+    imageUrl: faker.image.image(),
+    startDate: new Date(),
+    endDate: new Date(),
+    category: faker.lorem.word(),
+  }),
+];
+
+
 export default {
-  events: [
-    new Event(
-      1,
-      'Donec ultrices tincidunt',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ' +
-      'et dolore magna aliqua. Interdum consectetur libero id faucibus. ' +
-      'Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet.',
-      'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-      new Date().toDateString(),
-      new Date().toDateString(),
-      'test',
-    ),
-    new Event(
-      2,
-      'Donec ultrices tincidunt',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ' +
-      'et dolore magna aliqua. Interdum consectetur libero id faucibus. ' +
-      'Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet.',
-      'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-      new Date().toDateString(),
-      new Date().toDateString(),
-      'test',
-    ),
-  ],
+  events: fakeEvents,
 };

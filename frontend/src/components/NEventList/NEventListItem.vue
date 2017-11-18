@@ -4,7 +4,7 @@
       <v-layout row>
         <v-flex xs8>
           <div>
-            <div class="headline">{{event.name}}</div>
+            <div class="headline">{{ event.name }}</div>
             <div class="left">
               <span class="date">{{ event.startDate | dateToString }}</span>
               <span class="date-text">Start</span>
@@ -13,12 +13,12 @@
               <span class="date">{{ event.endDate | dateToString }}</span>
               <span class="date-text">End</span>
             </div><br /><br />
-            <div class="description">{{event.desc}}</div>
+            <div class="description">{{ event.description }}</div>
           </div>
         </v-flex>
         <v-flex xs4>
           <v-card-media
-            :src="event.imageURL"
+            :src="event.imageUrl"
             height="125px"
             contain
           ></v-card-media>
