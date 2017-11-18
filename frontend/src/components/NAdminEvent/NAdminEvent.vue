@@ -1,19 +1,6 @@
 <template>
   <div>
     Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
-    Admin
   </div>
 </template>
 

@@ -21,7 +21,7 @@
             :src="event.imageUrl"
             height="125px"
             contain
-          ></v-card-media>
+          />
         </v-flex>
       </v-layout>
     </v-container>
