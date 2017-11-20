@@ -2,7 +2,10 @@ export default {
   createEvent(state, event) {
     state.events.push(event);
   },
-  saveEvent(state, event) {
-    state.events = state.events[state.events.map(e => e).indexOf(event.id)];
+  updateEvent(state, event) {
+    const index = state.events.map(e => e).indexOf(event.id);
+    if (index >= 0) {
+      state.events[index] = event;
+    }
   },
 };

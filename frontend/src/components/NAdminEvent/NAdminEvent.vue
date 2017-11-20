@@ -1,7 +1,7 @@
 <template>
   <v-layout v-if="event">
     <v-flex xs12 sm8 offset-sm2>
-      <v-subheader v-text="'Create event'"/>
+      <v-subheader v-text="'Edit event'"/>
       <v-card color="white" class="pa-2">
         <v-container fluid>
           <v-form>
@@ -37,7 +37,7 @@
                 <n-date-picker :label="'Start date'" v-model="event.startDate"/>
               </v-flex>
               <v-flex xs6>
-                <n-date-picker :label="'End date'"  v-model="event.endDate"/>
+                <n-date-picker :label="'End date'" v-model="event.endDate"/>
               </v-flex>
             </v-layout>
             <v-layout row>
@@ -61,9 +61,9 @@
           </v-form>
         </v-container>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn flat color="deep-orange lighten-2" @click="saveEvent(event)">
-            Save
+          <v-spacer/>
+          <v-btn flat color="deep-orange lighten-2" @click="updateEvent(event)">
+            Update
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -79,7 +79,8 @@
 
 <script>
   import { mapGetters } from 'vuex';
-  import DateFilters from '@/shared/date/DateFilters';
+  import Event from '@/shared/models/Event';
+  import NSnackbar from '@/components/NSnackbar/NSnackbar';
 
   export default {
     name: 'NEventList',
@@ -87,17 +88,16 @@
       id: String,
       adminKey: String,
     },
-    mixins: [DateFilters],
     data() {
       return {
         snackbar: false,
-        event: null,
+        event: new Event(),
       };
     },
+    components: {
+      NSnackbar,
+    },
     methods: {
-      routeTo() {
-        this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
-      },
       isEventValid(e) {
         return !!e.name &&
           !!e.description &&
@@ -107,10 +107,10 @@
           !!e.category &&
           !!e.location;
       },
-      saveEvent(event) {
+      updateEvent(event) {
         if (this.isEventValid(event)) {
-          this.$store.commit('saveEvent', event);
-          this.$router.push({ name: 'n-event-list' });
+          this.$store.commit('updateEvent', event);
+          this.$router.push({name: 'n-event-list'});
         } else {
           this.snackbar = true;
         }
