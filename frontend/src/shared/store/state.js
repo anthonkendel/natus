@@ -2,7 +2,7 @@ import faker from 'faker';
 import Event from '../models/Event';
 
 const fakeEvents = [];
-for (let i = 0; i <= 20; i++) {
+for (let i = 0; i <= 6; i++) {
   const event = new Event({
     id: faker.random.uuid(),
     adminKey: faker.random.uuid(),

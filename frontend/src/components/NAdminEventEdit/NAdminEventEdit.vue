@@ -110,7 +110,7 @@
       updateEvent(event) {
         if (this.isEventValid(event)) {
           this.$store.commit('updateEvent', event);
-          this.$router.push({name: 'n-event-list'});
+          this.$router.push({ name: 'n-event-list' });
         } else {
           this.snackbar = true;
         }

@@ -20,7 +20,7 @@
       <v-list-tile
         v-for="path in paths"
         :key="path.title"
-        @click="routeTo(path.name)">
+        @click="routeToNEventView(path.name)">
 
         <v-list-tile-action>
           <v-icon>{{ path.icon }}</v-icon>
@@ -63,7 +63,7 @@
       };
     },
     methods: {
-      routeTo(name) {
+      routeToNEventView(name) {
         this.$router.push({ name });
       },
       toggleMini() {

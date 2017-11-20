@@ -46,11 +46,6 @@
         event: null,
       };
     },
-    methods: {
-      routeTo() {
-        this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
-      },
-    },
     computed: {
       ...mapGetters([
         'getEvent',

@@ -26,8 +26,8 @@
       </v-layout>
     </v-container>
     <v-card-actions>
-      <v-btn flat color="deep-orange lighten-2" @click="routeTo">View</v-btn>
-      <v-btn flat color="deep-orange lighten-2" @click="routeToAdmin">Admin</v-btn>
+      <v-btn flat color="deep-orange lighten-2" @click="routeToNEventView">View</v-btn>
+      <v-btn flat color="deep-orange lighten-2" @click="routeToNAdminEventEdit">Admin</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -40,11 +40,11 @@
     props: { event: Object },
     mixins: [DateFilters],
     methods: {
-      routeTo() {
+      routeToNEventView() {
         this.$router.push({ name: 'n-event-view', params: { id: this.event.id } });
       },
-      routeToAdmin() {
-        this.$router.push({ name: 'n-admin-event', params: { id: this.event.id, adminKey: this.event.adminKey } });
+      routeToNAdminEventEdit() {
+        this.$router.push({ name: 'n-admin-event-edit', params: { id: this.event.id, adminKey: this.event.adminKey } });
       },
     },
   };

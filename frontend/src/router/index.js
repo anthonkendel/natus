@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import NAdmin from '@/components/NAdmin/NAdmin';
-import NAdminEvent from '@/components/NAdminEvent/NAdminEvent';
+import NAdminEventEdit from '@/components/NAdminEventEdit/NAdminEventEdit';
 import NEvent from '@/components/NEvent/NEvent';
 import NEventCreate from '@/components/NEventCreate/NEventCreate';
 import NEventList from '@/components/NEventList/NEventList';
@@ -55,8 +55,8 @@ export default new Router({
         },
         {
           path: ':id/adminKey/:adminKey',
-          name: 'n-admin-event',
-          component: NAdminEvent,
+          name: 'n-admin-event-edit',
+          component: NAdminEventEdit,
           props: true,
         },
       ],
