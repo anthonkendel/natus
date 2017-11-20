@@ -1,6 +1,6 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm8 offset-sm2>
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8>
       <v-subheader v-text="'Events'"/>
       <template v-for="event in events">
         <n-event-list-item

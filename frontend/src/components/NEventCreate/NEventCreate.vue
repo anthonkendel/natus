@@ -1,6 +1,6 @@
 <template>
-  <v-layout>
-    <v-flex xs12 sm8 offset-sm2>
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8>
       <v-subheader v-text="'Create event'"/>
       <v-card color="white" class="pa-2">
         <v-container fluid>

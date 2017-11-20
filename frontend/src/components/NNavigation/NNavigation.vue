@@ -1,21 +1,21 @@
 <template>
   <v-navigation-drawer
     app
-    :dark="true"
+    dark
     fixed
-    class="deep-orange lighten-2"
     :mini-variant="mini"
     v-model="drawer"
     value="true"
-    disable-resize-watcher>
-    <v-toolbar flat class="deep-orange lighten-2">
-      <v-list>
-        <v-list-tile>
-          <v-list-tile-title class="title">Natus</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-toolbar>
-    <v-divider></v-divider>
+    class="deep-orange lighten-2">
+
+    <v-list>
+      <v-list-tile v-if="!mini">
+        <v-list-tile-title class="title"> Natus </v-list-tile-title>
+      </v-list-tile>
+      <v-list-tile avatar v-if="mini">
+        <v-list-tile-avatar class="red lighten-2"> N </v-list-tile-avatar>
+      </v-list-tile>
+    </v-list>
     <v-list>
       <v-list-tile
         v-for="path in paths"

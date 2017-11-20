@@ -1,6 +1,6 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm8 offset-sm2>
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8>
       <v-subheader v-text="'Event'"/>
       <v-card v-if="event" color="white" class="black--text pa-2">
         <v-container fluid grid-list-lg>

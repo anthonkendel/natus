@@ -1,6 +1,6 @@
 <template>
-  <v-layout v-if="event">
-    <v-flex xs12 sm8 offset-sm2>
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8>
       <v-subheader v-text="'Edit event'"/>
       <v-card color="white" class="pa-2">
         <v-container fluid>
@@ -80,6 +80,7 @@
 <script>
   import { mapGetters } from 'vuex';
   import Event from '@/shared/models/Event';
+  import NDatePicker from '@/components/NDatePicker/NDatePicker';
   import NSnackbar from '@/components/NSnackbar/NSnackbar';
 
   export default {
@@ -96,6 +97,7 @@
     },
     components: {
       NSnackbar,
+      NDatePicker,
     },
     methods: {
       isEventValid(e) {
